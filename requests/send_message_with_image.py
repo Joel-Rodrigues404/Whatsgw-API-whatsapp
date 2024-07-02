@@ -16,9 +16,9 @@ LIST_CONTACT_NUMBERS = os.environ.get("LIST_CONTACT_NUMBERS")
 
 url = "https://app.whatsgw.com.br/api/WhatsGw/Send"
 
-with open("whatsgw.pdf", "rb") as pdf_file:
+with open("./media/whatsgw.png", "rb") as pdf_file:
     pdf_binary_data = pdf_file.read()
-    pdf_base64 = base64.b64encode(pdf_binary_data).decode("utf-8")
+    image_base64 = base64.b64encode(pdf_binary_data).decode("utf-8")
 
 payload = json.dumps(
     {
@@ -26,12 +26,12 @@ payload = json.dumps(
         "phone_number": MANAGER_PHONE_NUMBER,
         "contact_phone_number": PRIMARY_CONTACT_NUMBER,
         "message_custom_id": "yoursoftwareid",
-        "message_type": "document",
+        "message_type": "image",
         "check_status": "1",
-        "message_body_mimetype": "application/pdf",
-        "message_body_filename": "document.pdf",
-        "message_caption": "pega michel",
-        "message_body": pdf_base64,
+        "message_body_mimetype": "image/jpeg",
+        "message_body_filename": "file.jpg",
+        "message_caption": "mensagem da imagem\nTeste de Msg\n_Italico_ \n*negrito*\n~tachado~\n```Monoespaçado```\n😜",
+        "message_body": image_base64,
     }
 )
 headers = {"Content-Type": "application/json"}
