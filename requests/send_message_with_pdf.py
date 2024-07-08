@@ -29,8 +29,8 @@ payload = json.dumps(
         "message_type": "document",
         "check_status": "1",
         "message_body_mimetype": "application/pdf",
-        "message_body_filename": "document.pdf",
-        "message_caption": "pega michel",
+        "message_body_filename": "nome_documento.pdf",
+        "message_caption": "texto que fica em baixo",
         "message_body": pdf_base64,
     }
 )
